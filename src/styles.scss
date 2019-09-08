@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.container{
+  margin: 0 50px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-dialog-container{
+  width: 80vw !important;
+  height: 80vh !important;
+}
+
+.poster-image {
+  max-width: 50px;
+}
+
+
+.text-center {
+  text-align: center;
+}

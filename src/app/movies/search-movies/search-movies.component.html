@@ -1,0 +1,31 @@
+<h1 class="text-center">Search Movies </h1>
+
+<div class="input-wrapper">
+    <mat-form-field class="example-full-width">
+        <input matInput validateInput
+                     placeholder="Search Movie"
+                     #searchMovie="ngModel"
+                     ngModel
+                     name="searchMovie"
+                     (keydown.enter)="onSearchMovie(searchMovie.value)"
+                     (keyup.escape)="onSearchMovie(null)">
+    </mat-form-field>
+</div>
+
+<mat-error *ngIf="searchMovie.invalid && searchMovie.touched">
+   <span *ngIf="searchMovie.errors['validateInputLength']">
+       Please fill at least 3 characters
+     </span>
+     <span *ngIf="searchMovie.errors['validateInput']">
+        Please use alphanumeric values
+      </span>
+  </mat-error>
+
+<app-movie-list *ngIf="movieList"
+      [movieList]="movieList"
+      [totalPages]="totalPages"
+      (pageChanged)="onPageChange($event)"
+      (rowClicked)="onRowClick($event)"
+      (moviesSelected)="onMoviesSelected($event)">
+</app-movie-list>
+

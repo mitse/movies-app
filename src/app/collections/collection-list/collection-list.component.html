@@ -1,0 +1,25 @@
+
+<h1>Collection List</h1>
+
+<mat-accordion class="collection-list">
+  <mat-expansion-panel *ngFor="let collection of collections">
+    <mat-expansion-panel-header
+       matTooltip="Add to Collection"
+       [matTooltipDisabled]="collection.added"
+       (click)="collectionChoosed(collection)">
+      <mat-panel-title>
+        {{collection.title}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{collection.description}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-list role="list">
+      <mat-list-item *ngFor="let movie of collection.movies" role="listitem">
+        {{movie.title}}
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+

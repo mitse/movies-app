@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="create-collection">
+    <form class="collection-form">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Title" [(ngModel)]="newCollection.title" name="title">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <textarea matInput placeholder="Add Description" [(ngModel)]="newCollection.description" name="description">
+            </textarea>
+      </mat-form-field>
+      <button mat-raised-button (click)="addNewCollection()">
+        Create
+      </button>
+    </form>
+  </div>
+
+  <h2 class="text-center"> Collections </h2>
+  <mat-accordion class="collection-list">
+    <mat-expansion-panel *ngFor="let collection of collections">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{collection.title}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{collection.description}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-list role="list">
+        <mat-list-item *ngFor="let movie of collection.movies" role="listitem">
+          <span (click)="onMovieClick(movie)"> {{movie.title}} </span>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

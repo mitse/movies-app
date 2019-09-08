@@ -1,0 +1,22 @@
+// :host mat-table {
+//   display: flex;
+//   flex-direction: column;
+//   min-width: 100px;
+//   max-width: 800px;
+//   margin: 0 auto;
+//   width: 300px;
+// }
+
+table#movie-list .mat-row {
+  background-color: white;
+  &:hover{
+    cursor: pointer;
+    background-color: aqua;
+    transition: 0.3s;
+  }
+}
+
+
+.selection-column {
+  min-width: 150px;
+}

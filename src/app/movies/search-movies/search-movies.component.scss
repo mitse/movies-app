@@ -1,0 +1,13 @@
+.search-movies-title {
+   text-align: center;
+}
+
+.input-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+    .mat-form-field {
+      width: 80%;
+   }
+}

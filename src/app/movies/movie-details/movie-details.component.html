@@ -1,0 +1,78 @@
+<h1>Movie Details</h1>
+
+<mat-list *ngIf="movieDetails" class="movie-details-list">
+
+  <mat-list-item>
+    <div class="list-header">Poster Path</div>
+    <div class="list-value">
+      <img *ngIf="movieDetails.poster_path; else noImage" class="poster-image" [src]="movieDetails.poster_path"
+        alt="poster-image">
+      <ng-template #noImage>No image</ng-template>
+    </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <div class="list-header">Title</div>
+    <div class="list-value">{{movieDetails?.title}}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <div class="list-header">Budget</div>
+    <div class="list-value">{{movieDetails?.budget}}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <div class="list-header">Release Date</div>
+    <div class="list-value">{{movieDetails?.release_date | date: 'dd/MM/yyyy'}}</div>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <div class="list-header">Revenue</div>
+    <div class="list-value">{{movieDetails?.revenue}}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <div class="list-header">Vote Average</div>
+    <div class="list-value">{{movieDetails.vote_average}}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <div class="list-header">Vote Count</div>
+    <div class="list-value">{{movieDetails.vote_count}}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <div class="list-header">Spoken languages</div>
+    <div class="list-value">{{spokenLanguages}}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <div class="list-header">Overview</div>
+    <div class="list-value">{{movieDetails?.overview}}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+</mat-list>
+
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Rate the Movie</mat-card-title>
+    <star-rating value="0" checkedcolor="gold"
+      uncheckedcolor="black" size="24px"
+      readonly="false"
+      (rate)="onRate($event)">
+    </star-rating>
+  </mat-card-header>
+  <mat-card-content>
+  </mat-card-content>
+</mat-card>
